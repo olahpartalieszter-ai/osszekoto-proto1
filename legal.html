@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device=width,intial-scale=1.0">
+    <title>Laptop<-> iPhone</title>
+    <!--Peer JS könyvtár behívása-->
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #1e1e2e; color: #cdd6f4; margin: 0; padding: 15px;text-align: center;}
+        .container { max-width: 600px;margin: 0px auto;background: #181825; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10 px rgba(0,0,0,0.5); }
+        h2 {color: #89b4fa; margin-top: 0;}
+        .status-box { background: #313244;padding: 10px; border-radius: 8px; margin-bottom: 15px; font-weight: bold;}
+        input[type="text"] {width: 65%; padding: 10px ;border-radius: 6px; border: 1px solid #45475a;background: #313244;color: white; }
+        button {padding: 10px 15px;border-radius: 6px;border: none; background: #89b4fa;color: #11111b; font-weight: bold; cursor: pointer; margin: 2px;}
+        button:hover {background: #b4befe;}
+        video { width:100%; border-radius: 8px; margin-top: 15px; background: #000;max-height: 350px;}
+        #chatBox {height: 150px; overflow-y: auto;background: #11111b; border-radius: 6px; padding: 10px; text-align: left;margin: 15px 0;border: 1px solid #45475a; }
+        .msg {margin-bottom: 8px; word-break: break-all;}
+        .msg a {color: #89b4fa;}
+        .msg img {max-width: 100%; border-radius: 6px; margin-top: 5px;}
+        .file-input {margin-top: 10px;}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Eszköz Összekötő</h2>
+    <div class="status-box">
+        Saját azonosítód (ID): <span id="myId" style="color: #a6e3a1;">Kapcsolódás... </span>
+    </div>
+
+    <div>
+        <input type="text" id="otherIdInput" placeholder="Másik eszköz ID-ja">
+        <button id="connectBtn">Kapcsolódás</button>
+    </div>
+
+    <hr style="border-color: #45475a; margin: 20px 0;">
+
+    <!--Képernyőmegosztás gomb-->
+    <button id="shareScreenBtn">Laptop Képernyő Megosztása</button>
+    <video id="remoteVideo" autoplay playsinline controls></video>
+     
+    <hr style="border-color: #45475a; margin: 20px 0;">
+
+    <!--Üzenetek és Fájlok-->
+    <h3>Üzenetek és Fájlok</h3>
+    <div id="chatBox"></div>
+
+    <div style="display: flex; gap: 5px;">
+        <input type="text" id="msgInput" placeholder="Írj üzenetet vagy illessz be linket...">
+        <button id="sendMsgBtn">Küldés</button>
+    </div>
+
+    <div class="file-input">
+        <input type="file" id="fileInput">
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
